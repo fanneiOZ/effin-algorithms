@@ -1,9 +1,12 @@
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+
 def insertion_sort(input_list: list):
     instance = input_list.copy()
 
     current = 1
     while current < len(instance):
-        print(F'Pre-processing {instance}')
         key = instance[current]
         i = current
         while key < instance[i - 1] and i >= 0:
@@ -12,7 +15,7 @@ def insertion_sort(input_list: list):
             i -= 1
 
         current += 1
-        print(F'Sorting value: {key}, output: {instance}')
+        logging.debug(F'Sorting value: {key}, output: {instance}')
 
     return instance
 
@@ -41,6 +44,6 @@ def selection_sort(input_list: list):
         instance[current] = key
 
         current += 1
-        print(F'Sorting value: {key}, output: {instance}')
+        logging.debug(F'Sorting value: {key}, output: {instance}')
 
     return instance
