@@ -5,7 +5,7 @@ from sorting_algorithms import *
 
 class TestSortingAlgorithms(unittest.TestCase):
     def setUp(self) -> None:
-        input_size = 10
+        input_size = 1000
         self.best_case_input = list(range(1, input_size + 1))
         self.worst_case_input = list(range(input_size, 0, -1))
 

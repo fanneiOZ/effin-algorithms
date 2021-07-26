@@ -1,17 +1,27 @@
 import logging
+logging.basicConfig(level=logging.INFO)
 
-logging.basicConfig(level=logging.DEBUG)
 
 def insertion_sort(input_list: list):
+    """ Insertion Sort
+    For 2nd to n elements, at i-th element
+      - Given i-th element is the key
+      - While key is less than i-1 th element
+        - Swap the current position of key with i-1 th element
+        - Break the loop immediately when key reach the 1st position
+
+    :param input_list: list of problem elements
+    :return: sorted list
+    """
     instance = input_list.copy()
 
     current = 1
     while current < len(instance):
         key = instance[current]
-        i = current
-        while key < instance[i - 1] and i >= 0:
-            instance[i] = instance[i - 1]
-            instance[i - 1] = key
+        i = current - 1
+        while key < instance[i] and i >= 0:
+            instance[i + 1] = instance[i]
+            instance[i] = key
             i -= 1
 
         current += 1
@@ -20,12 +30,15 @@ def insertion_sort(input_list: list):
     return instance
 
 
-# Selection Sort
-#
-# For first n - 1 elements, at i-th element
-#   - Find the least element from i to the last
-#   - Swap the final least value with i-th element
 def selection_sort(input_list: list):
+    """ Selection Sort
+    For first n - 1 elements, at i-th element
+      - Find the least element from i to the last
+      - Swap the final least value with i-th element
+
+    :param input_list: list of problem elements
+    :return: sorted list
+    """
     instance = input_list.copy()
 
     current = 0
